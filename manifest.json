@@ -1,31 +1,47 @@
 {
-    "name": "Verified Giver",
-    "version": "0.0.1",
-    "description": "Give a Verified SVG to any account you want",
-    "permissions": ["storage", "tabs"],
-    "host_permissions": ["https://*.twitter.com/*"],
-    "background": {
-      "service_worker": "background.js"
-    },
-    "content_scripts": [
-      {
-        "matches": ["https://*.twitter.com/*"],
-        "js": ["contentScript.js"]
-      }
-    ],
-    "web_accessible_resources": [
-      {
-        "matches": ["https://*.twitter.com/*"]
-      }
-    ],
-    "action": {
-      "default_icon": {
-        "16": "assets/ext-icon.png",
-        "24": "assets/ext-icon.png",
-        "32": "assets/ext-icon.png"
-      },
-      "default_title": "VerifiedGiver",
-      "default_popup": "popup.html"
-    },
-    "manifest_version": 3
+    "manifest_version":  3,
+    "name":  "Verified Giver",
+    "version":  "0.0.1",
+    "description":  "Give a Verified SVG to any account you want",
+    "icons":  {
+                  "16":  "./assets/16.png",
+                  "32":  "./assets/32.png",
+                  "48":  "./assets/48.png",
+                  "256":  "./assets/256.png",
+                  "512":  "./assets/512.png"
+              },
+    "content_scripts":  [
+                            {
+                                "matches":  [
+                                                "https://twitter.com/*",
+                                                "https://mobile.twitter.com/*"
+                                            ],
+                                "js":  [
+                                           "content.js"
+                                       ]
+                            }
+                        ],
+    "web_accessible_resources":  [
+                                     {
+                                         "resources":  [
+                                                           "script.js",
+                                                           "search.js"
+                                                       ],
+                                         "matches":  [
+                                                         "https://twitter.com/*",
+                                                         "https://mobile.twitter.com/*"
+                                                     ]
+                                     }
+                                 ],
+    "action":  {
+                   "default_icon":  {
+                                        "16":  "./assets/16.png",
+                                        "32":  "./assets/32.png"
+                                    },
+                   "default_title":  "Verified Options",
+                   "default_popup":  "options/options.html"
+               },
+    "permissions":  [
+                        "storage"
+                    ]
 }
